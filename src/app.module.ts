@@ -1,25 +1,42 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthenticationService } from './authentication/authentication.service';
-import { GoogleSheetsService } from './google-sheets/google-sheets.service';
-import { NotionService } from './notion/notion.service';
-import { ManychatService } from './manychat/manychat.service';
-import { MessengerService } from './messenger/messenger.service';
-import { InstagramService } from './instagram/instagram.service';
-import { MetaEventsService } from './meta-events/meta-events.service';
-import { OauthService } from './oauth/oauth.service';
-import { AwsLambdaService } from './aws-lambda/aws-lambda.service';
-import { TiktokService } from './tiktok/tiktok.service';
-import { ZapierService } from './zapier/zapier.service';
-import { MakeService } from './make/make.service';
-import { SlacjService } from './slacj/slacj.service';
-import { SlackService } from './slack/slack.service';
-import { GptService } from './gpt/gpt.service';
+import { AuthModule } from './oauth/oauth.module';
+import { SlackModule } from './slack/slack.module';
+import { NotionModule } from './notion/notion.module';
+import { TiktokModule } from './tiktok/tiktok.module';
+import { ZapierModule } from './zapier/zapier.module';
+import { MetaEventsModule } from './meta-events/meta-events.module';
+import { MessengerModule } from './messenger/messenger.module';
+import { ManychatModule } from './manychat/manychat.module';
+import { InstagramModule } from './instagram/instagram.module';
+import { GptModule } from './gpt/gpt.module';
+import { AwsLambdaModule } from './aws-lambda/aws-lambda.module';
+import { MakeModule } from './make/make.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
-  imports: [],
+  imports: [
+   AuthModule,
+   SlackModule,
+   NotionModule,
+   TiktokModule,
+   ZapierModule,
+   MetaEventsModule,
+   MessengerModule,
+   ManychatModule,
+   InstagramModule,
+   GptModule,
+   AwsLambdaModule,
+   MakeModule,
+   AuthenticationModule,
+  ],
   controllers: [AppController],
-  providers: [AppService, AuthenticationService, GoogleSheetsService, NotionService, ManychatService, MessengerService, InstagramService, MetaEventsService, OauthService, AwsLambdaService, TiktokService, ZapierService, MakeService, SlacjService, SlackService, GptService],
+  providers: [
+    AppService
+  ]
 })
-export class AppModule {}
+
+export class AppModule {
+
+}
